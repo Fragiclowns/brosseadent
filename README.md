@@ -4,4 +4,4 @@ A éditer
   - Sarah Kieffer: tsumtsum3003
   - Thibault Gruez: pacificsound3003
   - Thomas Briquet: PandaDuMetro
-  - Gérald Gallet: Edohad, le beau grosse du groupe #FauxEtModifiePas
+  - Gérald Gallet: Edohad
