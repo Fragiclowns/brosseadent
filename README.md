@@ -19,3 +19,5 @@ Plus de détails sur gitref.org bien évidemment !
 Bon, puisque j'aime commencer mes paragraphes par 'Bon, '
 Evidemment on travaille chacun sur sa branche, on n'hésite pas à créer d'autres branches si on en ressent le besoin
 Du moment qu'on nettoie un minimum après !
+
+On ne merge pas avec la master sans l'accord du groupe tout entier de préférence.
