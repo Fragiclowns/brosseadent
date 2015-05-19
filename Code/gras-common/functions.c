@@ -13,7 +13,7 @@ FILE* writeFile(char* fileName, DiskImage imageToWrite)
 	char buff[256];
 	int i = 0;
 	FilesIndex currentIndex;
-	LinkedBlock *currentBlock, *tmpBlock;
+	LinkedBlock *currentBlock = malloc(sizeof(LinkedBlock));
 	currentBlock->next = NULL;
 
 	// Save the Magic in the file
@@ -55,7 +55,10 @@ FILE* writeFile(char* fileName, DiskImage imageToWrite)
 			{
 				sprintf(buff, "%s\n", currentBlock->data);
 				fputs(buff, fToWrite);
-				//currentBlock = currentBlock->next;
+				if(currentBlock = NULL)
+				{
+					currentBlock = currentBlock->next;
+				}
 			}
 			
 		}
