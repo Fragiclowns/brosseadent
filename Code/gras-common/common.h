@@ -78,7 +78,7 @@ typedef struct index
 		Size: 64 bits
 	**/
 	
-	unsigned allocatedFile :1;
+	unsigned allocatedFile :1; // '1' correspond a un fichier alloué
 	unsigned fileType :1;
 	struct index *parentFile;
 	char fileName[256];
@@ -113,4 +113,4 @@ typedef struct image
 typedef struct result
 {
 	unsigned boolean:1;
-}Result;
+}   Result;
