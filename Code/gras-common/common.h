@@ -8,9 +8,17 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "conio.h"
-#include "functions.c"
+
+#define SEPARATOR ';'
+typedef struct version
+{
+	int major;
+	int minor;
+} Version;
+
 
 char magic[2] = "HU";
+Version versionActuelle = { 1, 0 };
 /*
 	A block structure that will be used as
 	Linked Lists
@@ -22,9 +30,8 @@ typedef struct block
 	char *data;
 } LinkedBlock;
 
-
 /*
-	A Date bit-fielded structure
+	A bit-fielded Date structure
 	Used in the Index of the Files
 */
 typedef struct date
@@ -34,7 +41,6 @@ typedef struct date
 	int hour :8;
 	int minutes :8;
 } Date;
-
 
 /*
 	The Index Files structure
@@ -84,12 +90,22 @@ typedef struct index
 
 } FilesIndex;
 
+typedef struct header
+{
+	char magic[2];
+	Version imageVersion;
+	int headerSize;
+	int indexSize;
+	int blockSize;
+} Header;
 
 /**
 	The main structure, the Image Disk one !
 **/
 typedef struct image 
 {
-	int header[5];
+	Header header;
 	FilesIndex *index;
+	int imageSize;
+	int filesNumber;
 } DiskImage;
