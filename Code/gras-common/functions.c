@@ -142,3 +142,17 @@ FilesIndex *seekIndex(char *name, FilesIndex *indexes)
 
 	printf("The researched file/folder does not actually exists\n");
 }
+
+int sizeFile(FilesIndex *index,int blockSize){
+	unsigned int count = 0;
+	unsigned int size = 0;
+	LinkedBlock *block = malloc(sizeof(LinkedBlock));
+	block = index->firstBlock;
+	while(block != NULL){
+		count++;
+		block = block->next;
+		}
+	size = (count * blockSize) + sizeof(FilesIndex);
+	free(block);
+	return size;	
+}
