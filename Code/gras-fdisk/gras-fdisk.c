@@ -7,7 +7,6 @@ void grasfdisk(int imageSize, int indexSize, int blockSize)
 	strcpy(newHeader.magic, magic);
 	newHeader.imageVersion = versionActuelle;
 	newHeader.headerSize = 10;
-	newHeader.indexSize = indexSize;
 	newHeader.blockSize = blockSize;
 
 	/*
@@ -26,6 +25,7 @@ void grasfdisk(int imageSize, int indexSize, int blockSize)
 	}
 
 	newIndex = malloc(size*sizeof(FilesIndex));
+	newHeader.indexSize = size;
 	/*
 		Regarding the demand of the user, we allocate a size array
 		In order to have enough files

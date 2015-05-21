@@ -4,12 +4,7 @@
 ##
 
 
-SRC=	../gras-common/common.h		\
-		../gras-common/conio.c 		\
-		../gras-common/conio.h 		\
-		../gras-common/functions.c 	\
-		../gras-common/test.c 		\
-		gras-fdisk.c 				\
+SRC=	gras-fdisk.c 				\
 
 NAME= 	test
 
