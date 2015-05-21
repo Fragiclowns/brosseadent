@@ -10,15 +10,28 @@
 #include "conio.h"
 
 #define SEPARATOR ';'
+
+typedef struct result
+{
+	unsigned boolean :1;
+} Result;
+
 typedef struct version
 {
 	int major;
 	int minor;
 } Version;
 
+char months[12][10] = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+
+Result Error = {1};
+Result Ok = {0};
 
 char magic[2] = "HU";
+
 Version versionActuelle = { 1, 0 };
+
+
 /*
 	A block structure that will be used as
 	Linked Lists
@@ -27,7 +40,8 @@ typedef struct block
 {
 	struct block *previous;
 	struct block *next;
-	char *data;
+	void *data;
+	int dataSize :4;
 } LinkedBlock;
 
 /*
@@ -80,7 +94,7 @@ typedef struct index
 	
 	unsigned allocatedFile :1;
 	unsigned fileType :1;
-	struct index *parentFile;
+	unsigned int parentFile :14;
 	char fileName[256];
 	Date creationDate;
 	Date lastModifDate;
@@ -109,3 +123,16 @@ typedef struct image
 	int imageSize;
 	int filesNumber;
 } DiskImage;
+
+FilesIndex emptyIndex = {0, 0, 0, "null", {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, NULL, NULL};
+/*
+emptyIndex.allocatedFile = 0;
+emptyIndex.fileType = 0;
+emptyIndex.parentFile = 0;
+emptyIndex.fileName = "null";
+emptyIndex.creationDate = emptyDate;
+emptyIndex.lastModifDate = emptydate;
+emptyIndex.lastAccessDate = emptyDate;
+emptyIndex.firstBlock = null;
+emptyIndex.lastBlock = null;
+*/
